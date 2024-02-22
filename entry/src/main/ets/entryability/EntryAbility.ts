@@ -2,6 +2,7 @@ import UIAbility from '@ohos.app.ability.UIAbility';
 import hilog from '@ohos.hilog';
 import window from '@ohos.window';
 
+// entryability存放ability文件，用于当前ability应用逻辑和生命周期管理。
 export default class EntryAbility extends UIAbility {
   onCreate(want, launchParam) {
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onCreate');

@@ -1,3 +1,4 @@
+// pages存放UI界面相关代码文件，初始会生成一个Index页面。
 @Entry
 @Component
 struct Index {
@@ -7,9 +8,10 @@ struct Index {
     Row() {
       Column() {
         Text(this.message)
-          .fontSize(30)
+          .fontSize(50)
           .fontWeight(FontWeight.Bold)
           .fontColor(Color.Green)
+        Button("Test Button")
       }
       .width('100%')
     }

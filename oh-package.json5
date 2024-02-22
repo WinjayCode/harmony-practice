@@ -1,3 +1,4 @@
+// oh-package.json5是工程级依赖配置文件，用于记录引入包的配置信息。
 {
   "name": "helloworld",
   "version": "1.0.0",

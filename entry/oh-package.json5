@@ -1,3 +1,4 @@
+// oh-package.json5是模块级依赖配置信息文件。
 {
   "name": "entry",
   "version": "1.0.0",
