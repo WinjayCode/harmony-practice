@@ -2,35 +2,55 @@
 // 其中module对应的是模块的配置信息，一个模块对应一个打包后的hap包，hap包全称是HarmonyOS Ability Package，其中包含了ability、第三方库、资源和配置文件。
 {
   "module": {
-    "name": "entry", // 该标签标识当前module的名字，module打包成hap后，表示hap的名称，标签值采用字符串表示（最大长度31个字节），该名称在整个应用要唯一。
-    "type": "entry", // 表示模块的类型，类型有三种，分别是entry、feature和har。
-    "srcEntry": "", // 当前模块的入口文件路径。
-    "description": "$string:module_desc", // 当前模块的描述信息。
-    "mainElement": "EntryAbility", // 该标签标识hap的入口ability名称或者extension名称。只有配置为mainElement的ability或者extension才允许在服务中心露出。
+    // 该标签标识当前module的名字，module打包成hap后，表示hap的名称，标签值采用字符串表示（最大长度31个字节），该名称在整个应用要唯一。
+    "name": "entry",
+    // 表示模块的类型，类型有三种，分别是entry、feature和har。
+    "type": "entry",
+    // 当前模块的入口文件路径。
+    "srcEntry": "",
+    // 当前模块的描述信息。
+    "description": "$string:module_desc",
+    // 该标签标识hap的入口ability名称或者extension名称。只有配置为mainElement的ability或者extension才允许在服务中心露出。
+    "mainElement": "EntryAbility",
+    // 该标签标识hap可以运行在哪类设备上，标签值采用字符串数组的表示。
     "deviceTypes": [
       "phone",
       "tablet"
-    ], // 该标签标识hap可以运行在哪类设备上，标签值采用字符串数组的表示。
-    "deliveryWithInstall": true, // 标识当前Module是否在用户主动安装的时候安装，表示该Module对应的HAP是否跟随应用一起安装。- true：主动安装时安装。- false：主动安装时不安装。
-    "installationFree": false, // 标识当前Module是否支持免安装特性。- true：表示支持免安装特性，且符合免安装约束。- false：表示不支持免安装特性。
-    "pages": "$profile:main_pages", // 对应的是main_pages.json文件，用于配置ability中用到的page信息。
-    "abilities": [ // 是一个数组，存放当前模块中所有的ability元能力的配置信息，其中可以有多个ability。
+    ],
+    // 标识当前Module是否在用户主动安装的时候安装，表示该Module对应的HAP是否跟随应用一起安装。- true：主动安装时安装。- false：主动安装时不安装。
+    "deliveryWithInstall": true,
+    // 标识当前Module是否支持免安装特性。- true：表示支持免安装特性，且符合免安装约束。- false：表示不支持免安装特性。
+    "installationFree": false,
+    // 对应的是main_pages.json文件，用于配置ability中用到的page信息。
+    "pages": "$profile:main_pages",
+    // 是一个数组，存放当前模块中所有的ability元能力的配置信息，其中可以有多个ability。
+    "abilities": [
       {
-        "name": "EntryAbility", // 该标签标识当前ability的逻辑名，该名称在整个应用要唯一，标签值采用字符串表示（最大长度127个字节）。
-        "srcEntry": "./ets/entryability/EntryAbility.ts", // ability的入口代码路径。
-        "description": "$string:EntryAbility_desc", // ability的描述信息。
-        "icon": "$media:icon", // ability的图标。该标签标识ability图标，标签值为资源文件的索引。该标签可缺省，缺省值为空。如果ability被配置为MainElement，该标签必须配置。
-        "label": "$string:EntryAbility_label", // ability的标签名。
-        "startWindowIcon": "$media:icon", // 启动页面的图标。
-        "startWindowBackground": "$color:start_window_background", // 启动页面的背景色。
-        // "visible": true/false, // ability是否可以被其他应用程序调用，true表示可以被其它应用调用， false表示不可以被其它应用调用。
+        // 该标签标识当前ability的逻辑名，该名称在整个应用要唯一，标签值采用字符串表示（最大长度127个字节）。
+        "name": "EntryAbility",
+        // ability的入口代码路径。
+        "srcEntry": "./ets/entryability/EntryAbility.ts",
+        // ability的描述信息。
+        "description": "$string:EntryAbility_desc",
+        // ability的图标。该标签标识ability图标，标签值为资源文件的索引。该标签可缺省，缺省值为空。如果ability被配置为MainElement，该标签必须配置。
+        "icon": "$media:app_icon",
+        // ability的标签名。
+        "label": "$string:app_name",
+        // 启动页面的图标。
+        "startWindowIcon": "$media:app_icon",
+        // 启动页面的背景色。
+        "startWindowBackground": "$color:start_window_background",
+        // ability是否可以被其他应用程序调用，true表示可以被其它应用调用， false表示不可以被其它应用调用。
         "exported": true,
-        "skills": [ // 标识能够接收的意图的action值的集合，取值通常为系统预定义的action值，也允许自定义。
+        // 标识能够接收的意图的action值的集合，取值通常为系统预定义的action值，也允许自定义。
+        "skills": [
           {
-            "entities": [ // 标识能够接收Want的Entity值的集合。
+            // 标识能够接收Want的Entity值的集合。
+            "entities": [
               "entity.system.home"
             ],
-            "actions": [ // 标识能够接收的Want的Action值的集合，取值通常为系统预定义的action值，也允许自定义。
+            // 标识能够接收的Want的Action值的集合，取值通常为系统预定义的action值，也允许自定义。
+            "actions": [
               "action.system.home"
             ]
           }

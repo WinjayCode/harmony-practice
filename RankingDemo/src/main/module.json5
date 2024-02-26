@@ -1,7 +1,7 @@
 {
   "module": {
     "name": "RankingDemo",
-    "type": "entry",
+    "type": "feature",
     "description": "$string:module_desc",
     "mainElement": "EntryAbility",
     "deviceTypes": [
@@ -12,12 +12,12 @@
     "pages": "$profile:main_pages",
     "abilities": [
       {
-        "name": "EntryAbility",
+        "name": "RankingDemoAbility",
         "srcEntry": "./ets/entryability/EntryAbility.ts",
         "description": "$string:entryAbility_desc",
-        "icon": "$media:icon",
+        "icon": "$media:app_icon",
         "label": "$string:entryAbility_label",
-        "startWindowIcon": "$media:icon",
+        "startWindowIcon": "$media:app_icon",
         "startWindowBackground": "$color:start_window_background",
         "exported": true,
         "orientation": "portrait",

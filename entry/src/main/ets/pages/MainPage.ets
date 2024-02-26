@@ -1,13 +1,14 @@
 import { MainViewModel } from '../viewmodel/MainViewModel';
 import { ListItemComponent } from '../view/ListItemComponent';
 import { TAG } from '../common/constants/Constants';
+import { MainData } from '../viewmodel/MainData';
 
 let mainModel: MainViewModel = new MainViewModel();
 
 @Entry
 @Component
 struct MainPage {
-  @State mainData: string[] = [];
+  @State mainData: MainData[] = [];
 
   aboutToAppear() {
     console.log(TAG, 'aboutToAppear()');
@@ -18,11 +19,11 @@ struct MainPage {
     Column() {
       List() {
         ForEach(this.mainData,
-          (item: string) => {
+          (item: MainData) => {
             ListItem() {
-              ListItemComponent({ name: item })
+              ListItemComponent({ name: item.pageName, isInEntryModule: item.isInEntryModule })
             }
-          }, (item: string) => item
+          }, (item: MainData) => item.pageName
         )
       }
       .width('100%')

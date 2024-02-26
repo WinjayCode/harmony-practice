@@ -1,7 +1,8 @@
 import { mainData } from '../model/DataModel';
+import { MainData } from './MainData';
 
 export class MainViewModel {
-  loadMainData(): string[] {
+  loadMainData(): MainData[] {
     return mainData;
   }
 }
