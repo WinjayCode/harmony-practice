@@ -2,7 +2,6 @@ import router from '@ohos.router';
 import { TAG } from '../common/constants/Constants';
 import AppContext from '@ohos.app.ability.common';
 
-
 @Component
 export struct ListItemComponent {
   name?: string

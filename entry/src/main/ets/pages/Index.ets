@@ -2,14 +2,6 @@
 import router from '@ohos.router';
 import { TAG } from '../common/constants/Constants';
 
-class routerParams {
-  src: string
-
-  constructor(str: string) {
-    this.src = str
-  }
-}
-
 @Entry
 @Component
 struct Index {
@@ -17,7 +9,10 @@ struct Index {
   @State src: string = ''
 
   onPageShow() {
-    this.src = (router.getParams() as routerParams).src
+    const params = router.getParams();
+    if (params != null && params.hasOwnProperty('src')) {
+      this.src = params['src'];
+    }
   }
 
   build() {

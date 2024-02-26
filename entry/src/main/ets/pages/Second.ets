@@ -4,7 +4,14 @@ import router from '@ohos.router';
 @Component
 struct Second {
   @State message: string = 'Second Page'
-  @State src: string = (router.getParams() as Record<string, string>)['src'];
+  @State src: string = '';
+
+  aboutToAppear() {
+    const params = router.getParams();
+    if (params != null && params.hasOwnProperty('src')) {
+      this.src = params['src'];
+    }
+  }
 
   build() {
     Row() {
@@ -18,14 +25,14 @@ struct Second {
           .opacity(0.6)
         Button("Back")
           .onClick(() => {
-            // router.showAlertBeforeBackPage({
-            //   message: 'You want back?'
-            // })
+            router.showAlertBeforeBackPage({
+              message: 'You want back?'
+            })
 
             // router.back();
 
             router.back({
-              url: './Index',
+              url: 'pages/Index',
               params: {
                 src: 'Second页面传来的数据'
               }
