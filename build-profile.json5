@@ -58,6 +58,18 @@
           ]
         }
       ]
+    },
+    {
+      "name": "TargetManagement",
+      "srcPath": "./TargetManagement",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
     }
   ]
 }

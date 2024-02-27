@@ -1,0 +1,27 @@
+{
+  "module": {
+    "name": "TargetManagement",
+    "type": "feature",
+    "description": "$string:module_desc",
+    "mainElement": "TargetManagementAbility",
+    "deviceTypes": [
+      "phone",
+      "tablet"
+    ],
+    "deliveryWithInstall": true,
+    "installationFree": false,
+    "pages": "$profile:main_pages",
+    "abilities": [
+      {
+        "name": "TargetManagementAbility",
+        "srcEntry": "./ets/targetmanagementability/TargetManagementAbility.ts",
+        "description": "$string:TargetManagementAbility_desc",
+        "icon": "$media:app_icon",
+        "label": "$string:TargetManagementAbility_label",
+        "startWindowIcon": "$media:app_icon",
+        "startWindowBackground": "$color:start_window_background",
+        "exported": true
+      }
+    ]
+  }
+}
