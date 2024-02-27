@@ -3,7 +3,7 @@
     "name": "RankingDemo",
     "type": "feature",
     "description": "$string:module_desc",
-    "mainElement": "EntryAbility",
+    "mainElement": "RankingDemoAbility",
     "deviceTypes": [
       "phone"
     ],
@@ -13,24 +13,13 @@
     "abilities": [
       {
         "name": "RankingDemoAbility",
-        "srcEntry": "./ets/entryability/EntryAbility.ts",
-        "description": "$string:entryAbility_desc",
+        "srcEntry": "./ets/entryability/RankingDemoAbility.ts",
+        "description": "$string:RankingDemoAbility_desc",
         "icon": "$media:app_icon",
-        "label": "$string:entryAbility_label",
+        "label": "$string:RankingDemoAbility_label",
         "startWindowIcon": "$media:app_icon",
         "startWindowBackground": "$color:start_window_background",
-        "exported": true,
-        "orientation": "portrait",
-        "skills": [
-          {
-            "entities": [
-              "entity.system.home"
-            ],
-            "actions": [
-              "action.system.home"
-            ]
-          }
-        ]
+        "exported": true
       }
     ]
   }

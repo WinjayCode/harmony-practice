@@ -5,11 +5,11 @@
       "value": "module description"
     },
     {
-      "name": "EntryAbility_desc",
+      "name": "ToDoListAbility_desc",
       "value": "description"
     },
     {
-      "name": "EntryAbility_label",
+      "name": "ToDoListAbility_label",
       "value": "ToDoList"
     },
     {
