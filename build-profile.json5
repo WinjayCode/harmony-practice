@@ -46,6 +46,18 @@
           ]
         }
       ]
+    },
+    {
+      "name": "ArkTSComponents",
+      "srcPath": "./ArkTSComponents",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
     }
   ]
 }
