@@ -26,7 +26,7 @@ export const SOURCE: string = 'source';
 /**
  * video net address
  */
-export const NET: string = '网络视频地址*****';
+export const NET: string = 'https://media.w3.org/2010/05/sintel/trailer.mp4';
 
 /**
  * toast message
