@@ -9,4 +9,5 @@ const mainData: MainData[] = [
   new MainData('ToDoList', false),
   new MainData('ArkTSComponents', false),
   new MainData('TargetManagement', false),
+  new MainData('SimpleVideo', false),
 ]

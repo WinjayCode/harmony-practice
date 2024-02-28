@@ -1,0 +1,27 @@
+{
+  "module": {
+    "name": "SimpleVideo",
+    "type": "feature",
+    "description": "$string:module_desc",
+    "mainElement": "SimpleVideoAbility",
+    "deviceTypes": [
+      "phone",
+      "tablet"
+    ],
+    "deliveryWithInstall": true,
+    "installationFree": false,
+    "pages": "$profile:main_pages",
+    "abilities": [
+      {
+        "name": "SimpleVideoAbility",
+        "srcEntry": "./ets/simplevideoability/SimpleVideoAbility.ts",
+        "description": "$string:SimpleVideoAbility_desc",
+        "icon": "$media:app_icon",
+        "label": "$string:SimpleVideoAbility_label",
+        "startWindowIcon": "$media:app_icon",
+        "startWindowBackground": "$color:start_window_background",
+        "exported": true
+      }
+    ]
+  }
+}
