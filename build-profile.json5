@@ -106,6 +106,18 @@
           ]
         }
       ]
+    },
+    {
+      "name": "WebComponent",
+      "srcPath": "./WebComponent",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
     }
   ]
 }

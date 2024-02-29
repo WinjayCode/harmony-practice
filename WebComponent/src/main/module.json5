@@ -1,0 +1,27 @@
+{
+  "module": {
+    "name": "WebComponent",
+    "type": "feature",
+    "description": "$string:module_desc",
+    "mainElement": "WebComponentAbility",
+    "deviceTypes": [
+      "phone",
+      "tablet"
+    ],
+    "deliveryWithInstall": true,
+    "installationFree": false,
+    "pages": "$profile:main_pages",
+    "abilities": [
+      {
+        "name": "WebComponentAbility",
+        "srcEntry": "./ets/webcomponentability/WebComponentAbility.ets",
+        "description": "$string:WebComponentAbility_desc",
+        "icon": "$media:app_icon",
+        "label": "$string:WebComponentAbility_label",
+        "startWindowIcon": "$media:app_icon",
+        "startWindowBackground": "$color:start_window_background",
+        "exported": true
+      }
+    ]
+  }
+}
