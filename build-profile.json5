@@ -82,6 +82,18 @@
           ]
         }
       ]
+    },
+    {
+      "name": "MultipleDialog",
+      "srcPath": "./MultipleDialog",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
     }
   ]
 }

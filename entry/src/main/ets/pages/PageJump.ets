@@ -4,7 +4,7 @@ import { TAG } from '../common/constants/Constants';
 
 @Entry
 @Component
-struct Index {
+struct PageJump {
   @State message: string = 'Index Page'
   @State src: string = ''
 

@@ -1,0 +1,27 @@
+{
+  "module": {
+    "name": "MultipleDialog",
+    "type": "feature",
+    "description": "$string:module_desc",
+    "mainElement": "MultipleDialogAbility",
+    "deviceTypes": [
+      "phone",
+      "tablet"
+    ],
+    "deliveryWithInstall": true,
+    "installationFree": false,
+    "pages": "$profile:main_pages",
+    "abilities": [
+      {
+        "name": "MultipleDialogAbility",
+        "srcEntry": "./ets/multipledialogability/MultipleDialogAbility.ets",
+        "description": "$string:MultipleDialogAbility_desc",
+        "icon": "$media:app_icon",
+        "label": "$string:MultipleDialogAbility_label",
+        "startWindowIcon": "$media:app_icon",
+        "startWindowBackground": "$color:start_window_background",
+        "exported": true
+      }
+    ]
+  }
+}

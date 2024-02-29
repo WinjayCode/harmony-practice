@@ -1,8 +1,8 @@
 {
   "src": [
     "pages/MainPage",
-    "pages/Index",
     "pages/Hello",
+    "pages/PageJump",
     "pages/Second"
   ],
   "//": [
