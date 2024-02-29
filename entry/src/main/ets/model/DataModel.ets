@@ -11,4 +11,5 @@ const mainData: MainData[] = [
   new MainData('TargetManagement', false),
   new MainData('SimpleVideo', false),
   new MainData('MultipleDialog', false),
+  new MainData('AnimateRefresh', false),
 ]

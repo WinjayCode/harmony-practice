@@ -94,6 +94,18 @@
           ]
         }
       ]
+    },
+    {
+      "name": "AnimateRefresh",
+      "srcPath": "./AnimateRefresh",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
     }
   ]
 }

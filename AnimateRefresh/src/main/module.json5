@@ -1,0 +1,27 @@
+{
+  "module": {
+    "name": "AnimateRefresh",
+    "type": "feature",
+    "description": "$string:module_desc",
+    "mainElement": "AnimateRefreshAbility",
+    "deviceTypes": [
+      "phone",
+      "tablet"
+    ],
+    "deliveryWithInstall": true,
+    "installationFree": false,
+    "pages": "$profile:main_pages",
+    "abilities": [
+      {
+        "name": "AnimateRefreshAbility",
+        "srcEntry": "./ets/animaterefreshability/AnimateRefreshAbility.ets",
+        "description": "$string:AnimateRefreshAbility_desc",
+        "icon": "$media:app_icon",
+        "label": "$string:AnimateRefreshAbility_label",
+        "startWindowIcon": "$media:app_icon",
+        "startWindowBackground": "$color:start_window_background",
+        "exported": true
+      }
+    ]
+  }
+}
