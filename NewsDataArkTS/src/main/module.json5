@@ -1,0 +1,39 @@
+{
+  "module": {
+    "name": "NewsDataArkTS",
+    "type": "feature",
+    "description": "$string:module_desc",
+    "mainElement": "NewsDataArkTSAbility",
+    "deviceTypes": [
+      "phone",
+      "tablet"
+    ],
+    "deliveryWithInstall": true,
+    "installationFree": false,
+    "pages": "$profile:main_pages",
+    "abilities": [
+      {
+        "name": "NewsDataArkTSAbility",
+        "srcEntry": "./ets/newsdataarktsability/NewsDataArkTSAbility.ets",
+        "description": "$string:NewsDataArkTSAbility_desc",
+        "icon": "$media:app_icon",
+        "label": "$string:NewsDataArkTSAbility_label",
+        "startWindowIcon": "$media:app_icon",
+        "startWindowBackground": "$color:start_window_background",
+        "exported": true
+      }
+    ],
+    "requestPermissions": [
+      {
+        "name": "ohos.permission.INTERNET",
+        "reason": "$string:dependency_reason",
+        "usedScene": {
+          "abilities": [
+            "NewsDataArkTSAbility"
+          ],
+          "when": "inuse"
+        }
+      }
+    ]
+  }
+}

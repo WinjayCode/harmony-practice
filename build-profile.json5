@@ -118,6 +118,18 @@
           ]
         }
       ]
+    },
+    {
+      "name": "NewsDataArkTS",
+      "srcPath": "./NewsDataArkTS",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
     }
   ]
 }

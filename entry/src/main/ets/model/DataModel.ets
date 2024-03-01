@@ -13,4 +13,5 @@ const mainData: MainData[] = [
   new MainData('MultipleDialog', false),
   new MainData('AnimateRefresh', false),
   new MainData('WebComponent', false),
+  new MainData('NewsDataArkTS', false),
 ]

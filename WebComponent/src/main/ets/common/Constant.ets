@@ -22,7 +22,11 @@ export class CommonConstant {
   /**
    * The host address of the server.
    */
-  static readonly CLOUD_PATH: string = 'http://xxx.xxx.xxx.xxx:9588/index.html';
+  // static readonly CLOUD_PATH: string = 'http://xxx.xxx.xxx.xxx:9588/index.html';
+  /**
+   * replace 'xxx.xxx.xxx.xxx' with the ip address of your local computer
+   */
+  static readonly CLOUD_PATH: string = 'http://192.168.168.212:9588/index.html';
 
   static readonly WEB_ALERT_DIALOG_TEXT_VALUE: string = '恭喜您抽中:';
 
