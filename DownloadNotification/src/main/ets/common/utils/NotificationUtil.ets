@@ -17,6 +17,7 @@ import wantAgent, { WantAgent } from '@ohos.app.ability.wantAgent';
 import notification from '@ohos.notificationManager';
 import CommonConstants from '../constants/CommonConstants';
 import Logger from '../utils/Logger';
+import image from '@ohos.multimedia.image';
 
 /**
  * Obtains the WantAgent of an application.
@@ -25,6 +26,7 @@ import Logger from '../utils/Logger';
  */
 export function createWantAgent(bundleName: string, abilityName: string): Promise<WantAgent> {
   let wantAgentInfo = {
+    // 拉起UIAbility
     wants: [
       {
         bundleName: bundleName,
@@ -32,6 +34,16 @@ export function createWantAgent(bundleName: string, abilityName: string): Promis
       }
     ],
     operationType: wantAgent.OperationType.START_ABILITY,
+
+    // 发布公共事件
+    // wants: [
+    //   {
+    //     action: 'event_name', // 设置事件名
+    //     parameters: {},
+    //   }
+    // ],
+    // operationType: wantAgent.OperationType.SEND_COMMON_EVENT,
+
     requestCode: 0,
     wantAgentFlags: [wantAgent.WantAgentFlags.CONSTANT_FLAG]
   } as wantAgent.WantAgentInfo;
@@ -91,6 +103,7 @@ export function openNotificationPermission() {
 export function publishTextNotification() {
   let notificationRequest: notification.NotificationRequest = { // 描述通知的请求
     id: CommonConstants.NOTIFICATION_ID, // 通知ID
+    groupName:'TextGroup', // 通知分组
     slotType: notification.SlotType.SERVICE_INFORMATION,
     content: { // 通知内容
       contentType: notification.ContentType.NOTIFICATION_CONTENT_BASIC_TEXT, // 普通文本类型通知
@@ -106,4 +119,81 @@ export function publishTextNotification() {
   }).catch((err) => {
     Logger.error(`publish failed, dcode:${err.code}, message:${err.message}`);
   });
+}
+
+/**
+ * picture notification
+ */
+export async function publishPictureNotification() {
+  // 将资源图片转化为PixelMap对象
+  let resourceManager = getContext(this).resourceManager;
+  let imageArray = await resourceManager.getMediaContent($r('app.media.bigPicture').id);
+  let imageResource = image.createImageSource(imageArray.buffer);
+  let pixelMap = await imageResource.createPixelMap();
+
+  let notificationRequest: notification.NotificationRequest = { // 描述通知的请求
+    id: CommonConstants.NOTIFICATION_ID,
+    groupName:'PictureGroup', // 通知分组
+    content: {
+      contentType: notification.ContentType.NOTIFICATION_CONTENT_PICTURE,
+      picture: {
+        title: '图片类型通知-标题', // 通知内容标题
+        text: '图片类型通知-内容', // 通知内容
+        expandedTitle: '图片类型通知-展开-标题', // 通知展开时的内容标题
+        briefText: '图片类型通知-展开-内容', // 通知概要内容，是对通知内容的总结
+        picture: pixelMap // 通知的图片内容
+      }
+    }
+  }
+
+  notification.publish(notificationRequest).then(() => { // 发布通知
+    Logger.info('publish success');
+  }).catch((err) => {
+    Logger.error(`publish failed, dcode:${err.code}, message:${err.message}`);
+  });
+}
+
+/**
+ * add action buttons
+ */
+export function addActionButtons(wantAgentObj: WantAgent) {
+  let notificationRequest: notification.NotificationRequest = { // 描述通知的请求
+    id: CommonConstants.NOTIFICATION_ID, // 通知ID
+    groupName:'ChatGroup', // 通知分组
+    slotType: notification.SlotType.SOCIAL_COMMUNICATION,
+    showDeliveryTime: true,
+    deliveryTime: new Date().getTime(),
+    content: { // 通知内容
+      contentType: notification.ContentType.NOTIFICATION_CONTENT_BASIC_TEXT, // 普通文本类型通知
+      normal: { // 基本类型通知内容
+        title: '张三',
+        text: '吃饭了吗？'
+      }
+    },
+    actionButtons: [
+      {
+        title: '回复',
+        wantAgent: wantAgentObj,
+      }
+    ]
+  }
+  notification.publish(notificationRequest).then(() => { // 发布通知
+    Logger.info('publish success');
+  }).catch((err) => {
+    Logger.error(`publish failed, dcode:${err.code}, message:${err.message}`);
+  });
+}
+
+/**
+ * cancel notification
+ */
+export function cancel() {
+  notification.cancel(CommonConstants.NOTIFICATION_ID);
+}
+
+/**
+ * cancel all notification
+ */
+export function cancelAll() {
+  notification.cancelAll();
 }
