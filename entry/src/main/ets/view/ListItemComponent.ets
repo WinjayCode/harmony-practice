@@ -17,10 +17,19 @@ export struct ListItemComponent {
     }
     .onClick(() => {
       console.debug(TAG, `isInEntryModule=${this.isInEntryModule}`);
-      if (this.isInEntryModule) {
-        jumpPage(this.name);
+      let startIndex = this.name.indexOf("(");
+      console.debug(TAG, `startIndex=${startIndex}`);
+      let result;
+      if (startIndex === -1) {
+        result = this.name;
       } else {
-        jumpDifferentAbility(this.name);
+        result = this.name.substring(0, startIndex);
+      }
+      console.debug(TAG, `result=${result}`);
+      if (this.isInEntryModule) {
+        jumpPage(result);
+      } else {
+        jumpDifferentAbility(result);
       }
     })
   }
@@ -52,6 +61,6 @@ async function jumpDifferentAbility(pageName: string) {
     await context.startAbility(want);
     console.info(TAG, 'start ability succeed!');
   } catch (error) {
-    console.info(TAG, `start ability failed with ${error.code}`);
+    console.error(TAG, `start ability failed with ${error.code}`);
   }
 }

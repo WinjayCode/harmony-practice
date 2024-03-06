@@ -32,7 +32,7 @@ struct Second {
             // router.back();
 
             router.back({
-              url: 'pages/Index',
+              url: 'pages/PageJump',
               params: {
                 src: 'Second页面传来的数据'
               }
