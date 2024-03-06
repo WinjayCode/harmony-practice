@@ -130,6 +130,18 @@
           ]
         }
       ]
+    },
+    {
+      "name": "SetAppFontSize",
+      "srcPath": "./SetAppFontSize",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
     }
   ]
 }

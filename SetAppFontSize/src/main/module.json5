@@ -1,0 +1,28 @@
+{
+  "module": {
+    "name": "SetAppFontSize",
+    "type": "feature",
+    "description": "$string:module_desc",
+    "mainElement": "SetAppFontSizeAbility",
+    "deviceTypes": [
+      "phone",
+      "tablet"
+    ],
+    "deliveryWithInstall": true,
+    "installationFree": false,
+    "pages": "$profile:main_pages",
+    "abilities": [
+      {
+        "name": "SetAppFontSizeAbility",
+        "srcEntry": "./ets/setappfontsizeability/SetAppFontSizeAbility.ets",
+        "description": "$string:SetAppFontSizeAbility_desc",
+        "icon": "$media:app_icon",
+        "label": "$string:SetAppFontSizeAbility_label",
+        "startWindowIcon": "$media:app_icon",
+        "startWindowBackground": "$color:start_window_background",
+        "exported": true,
+        "orientation": "portrait"
+      }
+    ]
+  }
+}

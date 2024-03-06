@@ -14,4 +14,5 @@ const mainData: MainData[] = [
   new MainData('AnimateRefresh', false),
   new MainData('WebComponent', false),
   new MainData('NewsDataArkTS', false),
+  new MainData('SetAppFontSize', false),
 ]
