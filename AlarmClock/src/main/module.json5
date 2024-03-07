@@ -1,0 +1,39 @@
+{
+  "module": {
+    "name": "AlarmClock",
+    "type": "feature",
+    "description": "$string:module_desc",
+    "mainElement": "AlarmClockAbility",
+    "deviceTypes": [
+      "phone",
+      "tablet"
+    ],
+    "deliveryWithInstall": true,
+    "installationFree": false,
+    "pages": "$profile:main_pages",
+    "abilities": [
+      {
+        "name": "AlarmClockAbility",
+        "srcEntry": "./ets/alarmclockability/AlarmClockAbility.ets",
+        "description": "$string:AlarmClockAbility_desc",
+        "icon": "$media:icon",
+        "label": "$string:AlarmClockAbility_label",
+        "startWindowIcon": "$media:icon",
+        "startWindowBackground": "$color:start_window_background",
+        "exported": true
+      }
+    ],
+    "requestPermissions": [
+      {
+        "name": "ohos.permission.PUBLISH_AGENT_REMINDER",
+        "reason": "$string:reason",
+        "usedScene": {
+          "abilities": [
+            "AlarmClockAbility"
+          ],
+          "when": "inuse"
+        }
+      }
+    ]
+  }
+}

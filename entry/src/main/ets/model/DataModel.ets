@@ -15,5 +15,6 @@ const mainData: MainData[] = [
   new MainData('WebComponent(Web组件的使用)', false),
   new MainData('NewsDataArkTS(Http数据请求)', false),
   new MainData('SetAppFontSize(数据管理)', false),
-  new MainData('DownloadNotification(通知)', false),
+  new MainData('Notification(通知)', false),
+  new MainData('AlarmClock(提醒)', false),
 ]

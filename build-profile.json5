@@ -144,8 +144,20 @@
       ]
     },
     {
-      "name": "DownloadNotification",
-      "srcPath": "./DownloadNotification",
+      "name": "Notification",
+      "srcPath": "./Notification",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "AlarmClock",
+      "srcPath": "./AlarmClock",
       "targets": [
         {
           "name": "default",

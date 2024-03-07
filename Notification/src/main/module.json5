@@ -1,0 +1,27 @@
+{
+  "module": {
+    "name": "Notification",
+    "type": "feature",
+    "description": "$string:module_desc",
+    "mainElement": "NotificationAbility",
+    "deviceTypes": [
+      "phone",
+      "tablet"
+    ],
+    "deliveryWithInstall": true,
+    "installationFree": false,
+    "pages": "$profile:main_pages",
+    "abilities": [
+      {
+        "name": "NotificationAbility",
+        "srcEntry": "./ets/notificationability/NotificationAbility.ets",
+        "description": "$string:NotificationAbility_desc",
+        "icon": "$media:app_icon",
+        "label": "$string:NotificationAbility_label",
+        "startWindowIcon": "$media:app_icon",
+        "startWindowBackground": "$color:start_window_background",
+        "exported": true
+      }
+    ]
+  }
+}
