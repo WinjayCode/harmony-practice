@@ -1,0 +1,16 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "module description"
+    },
+    {
+      "name": "PageRouterAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "PageRouterAbility_label",
+      "value": "PageRouter"
+    }
+  ]
+}

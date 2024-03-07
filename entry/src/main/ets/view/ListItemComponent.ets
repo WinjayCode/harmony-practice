@@ -5,31 +5,29 @@ import AppContext from '@ohos.app.ability.common';
 @Component
 export struct ListItemComponent {
   name?: string
+  description?: string
   isInEntryModule: boolean
 
   build() {
     Row() {
       Text(this.name)
-        .width('100%')
         .fontColor(Color.Black)
         .fontSize(20)
         .padding(10)
+      Text(this.description)
+        .fontColor(Color.Black)
+        .fontSize(16)
+        .padding(10)
+        .opacity(0.6)
     }
+    .justifyContent(FlexAlign.SpaceBetween)
+    .width('100%')
     .onClick(() => {
       console.debug(TAG, `isInEntryModule=${this.isInEntryModule}`);
-      let startIndex = this.name.indexOf("(");
-      console.debug(TAG, `startIndex=${startIndex}`);
-      let result;
-      if (startIndex === -1) {
-        result = this.name;
-      } else {
-        result = this.name.substring(0, startIndex);
-      }
-      console.debug(TAG, `result=${result}`);
       if (this.isInEntryModule) {
-        jumpPage(result);
+        jumpPage(this.name);
       } else {
-        jumpDifferentAbility(result);
+        jumpDifferentAbility(this.name);
       }
     })
   }

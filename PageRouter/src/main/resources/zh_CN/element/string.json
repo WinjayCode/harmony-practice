@@ -1,0 +1,16 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "模块描述"
+    },
+    {
+      "name": "PageRouterAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "PageRouterAbility_label",
+      "value": "页面跳转"
+    }
+  ]
+}

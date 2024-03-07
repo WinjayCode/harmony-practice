@@ -166,6 +166,18 @@
           ]
         }
       ]
+    },
+    {
+      "name": "PageRouter",
+      "srcPath": "./PageRouter",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
     }
   ]
 }

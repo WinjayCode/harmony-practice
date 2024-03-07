@@ -1,0 +1,27 @@
+{
+  "module": {
+    "name": "PageRouter",
+    "type": "feature",
+    "description": "$string:module_desc",
+    "mainElement": "PageRouterAbility",
+    "deviceTypes": [
+      "phone",
+      "tablet"
+    ],
+    "deliveryWithInstall": true,
+    "installationFree": false,
+    "pages": "$profile:main_pages",
+    "abilities": [
+      {
+        "name": "PageRouterAbility",
+        "srcEntry": "./ets/pagerouterability/PageRouterAbility.ts",
+        "description": "$string:PageRouterAbility_desc",
+        "icon": "$media:app_icon",
+        "label": "$string:PageRouterAbility_label",
+        "startWindowIcon": "$media:app_icon",
+        "startWindowBackground": "$color:start_window_background",
+        "exported": true
+      }
+    ]
+  }
+}

@@ -1,3 +1,4 @@
+// pages存放UI界面相关代码文件，初始会生成一个Index页面。
 import { MainViewModel } from '../viewmodel/MainViewModel';
 import { ListItemComponent } from '../view/ListItemComponent';
 import { TAG } from '../common/constants/Constants';
@@ -21,7 +22,11 @@ struct MainPage {
         ForEach(this.mainData,
           (item: MainData) => {
             ListItem() {
-              ListItemComponent({ name: item.pageName, isInEntryModule: item.isInEntryModule })
+              ListItemComponent({
+                name: item.pageName,
+                description: item.description,
+                isInEntryModule: item.isInEntryModule
+              })
             }
           }, (item: MainData) => item.pageName
         )

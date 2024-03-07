@@ -1,9 +1,7 @@
 {
   "src": [
     "pages/MainPage",
-    "pages/Hello",
-    "pages/PageJump",
-    "pages/Second"
+    "pages/Hello"
   ],
   "//": [
     "main_pages.json文件保存的是页面page的路径配置信息，所有需要进行路由跳转的page页面都要在这里进行配置。"
