@@ -17,5 +17,5 @@ const mainData: MainData[] = [
   new MainData('SetAppFontSize', '数据管理', false),
   new MainData('Notification', '通知', false),
   new MainData('AlarmClock', '提醒', false),
-  new MainData('ThirdPartyLibrary', '三方库', false),
+  new MainData('ThirdPartyLibrary', '三方库的使用', false),
 ]
