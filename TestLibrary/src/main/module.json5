@@ -1,0 +1,9 @@
+{
+  "module": {
+    "name": "TestLibrary",
+    "type": "har",
+    "deviceTypes": [
+      "default"
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "module": {
+    "name": "ThirdPartyLibrary",
+    "type": "feature",
+    "description": "$string:module_desc",
+    "mainElement": "ThirdPartyLibraryAbility",
+    "deviceTypes": [
+      "phone",
+      "tablet"
+    ],
+    "deliveryWithInstall": true,
+    "installationFree": false,
+    "pages": "$profile:main_pages",
+    "abilities": [
+      {
+        "name": "ThirdPartyLibraryAbility",
+        "srcEntry": "./ets/thirdpartylibraryability/ThirdPartyLibraryAbility.ets",
+        "description": "$string:ThirdPartyLibraryAbility_desc",
+        "icon": "$media:app_icon",
+        "label": "$string:ThirdPartyLibraryAbility_label",
+        "startWindowIcon": "$media:app_icon",
+        "startWindowBackground": "$color:start_window_background",
+        "exported": true
+      }
+    ]
+  }
+}

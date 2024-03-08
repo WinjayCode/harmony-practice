@@ -20,18 +20,21 @@
 @Entry // 表示这是个入口组件
 @Component // 表示这是个自定义组件
 struct Hello {
-  @State myText: string = 'World' // 表示组件中的状态变量，此状态变化会引起 UI 变更
+  @State myText: string = 'Harmony' // 表示组件中的状态变量，此状态变化会引起 UI 变更
 
   build() {
     Column() {
       Text('Hello')
         .fontSize(50)
+        .fontColor(Color.White)
+        .margin({ top: 300 })
       Text(this.myText)
         .fontSize(50)
-      Divider()
+        .fontColor(Color.White)
       Button() {
         Text('Click me')
           .fontSize(30)
+          .fontColor(Color.White)
       }
       .onClick(() => {
         this.myText = 'ArkUI'
@@ -39,5 +42,11 @@ struct Hello {
       .width(200)
       .height(50)
     }
+    .backgroundImageSize(ImageSize.Cover)
+    .backgroundImagePosition(Alignment.Center)
+    .backgroundImage($r('app.media.bg'))
+    .justifyContent(FlexAlign.Center)
+    .width('100%')
+    .height('100%')
   }
 }

@@ -1,4 +1,3 @@
-// 应用级配置信息，包括签名、产品配置等。
 {
   "app": {
     "signingConfigs": [],
@@ -171,6 +170,30 @@
     {
       "name": "PageRouter",
       "srcPath": "./PageRouter",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ThirdPartyLibrary",
+      "srcPath": "./ThirdPartyLibrary",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "TestLibrary",
+      "srcPath": "./TestLibrary",
       "targets": [
         {
           "name": "default",
