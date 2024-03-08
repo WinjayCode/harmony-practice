@@ -1,12 +1,13 @@
 import router from '@ohos.router';
 import { TAG } from '../common/constants/Constants';
-import AppContext from '@ohos.app.ability.common';
+import common from '@ohos.app.ability.common';
 
 @Component
 export struct ListItemComponent {
   name?: string
   description?: string
   isInEntryModule: boolean
+  private context = getContext(this) as common.UIAbilityContext;
 
   build() {
     Row() {
@@ -25,40 +26,40 @@ export struct ListItemComponent {
     .onClick(() => {
       console.debug(TAG, `isInEntryModule=${this.isInEntryModule}`);
       if (this.isInEntryModule) {
-        jumpPage(this.name);
+        this.jumpPage(this.name);
       } else {
-        jumpDifferentAbility(this.name);
+        this.jumpDifferentAbility(this.name);
       }
     })
   }
-}
 
-function jumpPage(pageName: string): void {
-  console.debug(TAG, `jumpPage():pageName=${pageName}`);
-  router.pushUrl({
-    url: `pages/${pageName}`
-  }, router.RouterMode.Standard, (err) => {
-    if (err) {
-      console.error(TAG, `start page failed, code is ${err.code}, message is ${err.message}`);
-      return;
-    }
-    console.info(TAG, 'start page succeeded.');
-  });
-}
+  jumpPage(pageName: string): void {
+    console.debug(TAG, `jumpPage():pageName=${pageName}`);
+    router.pushUrl({
+      url: `pages/${pageName}`
+    }, router.RouterMode.Standard, (err) => {
+      if (err) {
+        console.error(TAG, `start page failed, code is ${err.code}, message is ${err.message}`);
+        return;
+      }
+      console.debug(TAG, 'start page succeeded.');
+    });
+  }
 
-async function jumpDifferentAbility(pageName: string) {
-  console.debug(TAG, `jumpDifferentAbility():pageName=${pageName}`);
-  try {
-    let want = {
-      deviceId: '',
-      bundleName: 'com.winjay.practice',
-      moduleName: pageName,
-      abilityName: `${pageName}Ability`
+  async jumpDifferentAbility(pageName: string) {
+    console.debug(TAG, `jumpDifferentAbility():pageName=${pageName}`);
+    try {
+      let want = {
+        deviceId: '',
+        bundleName: this.context.abilityInfo.bundleName,
+        moduleName: pageName,
+        abilityName: `${pageName}Ability`
+      }
+      await this.context.startAbility(want);
+      console.debug(TAG, 'start ability succeed!');
+    } catch (error) {
+      console.error(TAG, `start ability failed with: ${error}`);
     }
-    let context = getContext(this) as AppContext.UIAbilityContext;
-    await context.startAbility(want);
-    console.info(TAG, 'start ability succeed!');
-  } catch (error) {
-    console.error(TAG, `start ability failed with ${error.code}`);
   }
 }
+
