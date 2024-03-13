@@ -1,0 +1,12 @@
+{
+  "name": "nativetemplatedemo",
+  "version": "1.0.0",
+  "description": "Please describe the basic information.",
+  "main": "",
+  "author": "",
+  "license": "",
+  "dependencies": {
+    // 添加so文件依赖
+    "@types/libhello.so": "file:./src/main/cpp/types/libhello"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "module": {
+    "name": "NativeTemplateDemo",
+    "type": "feature",
+    "description": "$string:module_desc",
+    "mainElement": "NativeTemplateDemoAbility",
+    "deviceTypes": [
+      "phone",
+      "tablet"
+    ],
+    "deliveryWithInstall": true,
+    "installationFree": false,
+    "pages": "$profile:main_pages",
+    "abilities": [
+      {
+        "name": "NativeTemplateDemoAbility",
+        "srcEntry": "./ets/nativetemplatedemoability/NativeTemplateDemoAbility.ts",
+        "description": "$string:NativeTemplateDemoAbility_desc",
+        "icon": "$media:app_icon",
+        "label": "$string:NativeTemplateDemoAbility_label",
+        "startWindowIcon": "$media:app_icon",
+        "startWindowBackground": "$color:start_window_background",
+        "exported": true
+      }
+    ]
+  }
+}

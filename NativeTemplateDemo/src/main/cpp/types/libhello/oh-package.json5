@@ -1,0 +1,7 @@
+// 接口配置文件oh-package.json5文件中将index.d.ts与CMake编译的so文件关联起来。
+{
+  "name": "libhello.so",
+  "types": "./index.d.ts",
+  "version": "",
+  "description": "Please describe the basic information."
+}

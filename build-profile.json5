@@ -1,4 +1,5 @@
 {
+  // 应用级配置信息，包括签名、产品配置等。
   "app": {
     "signingConfigs": [],
     "compileSdkVersion": 9,
@@ -194,6 +195,18 @@
     {
       "name": "TestLibrary",
       "srcPath": "./TestLibrary",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NativeTemplateDemo",
+      "srcPath": "./NativeTemplateDemo",
       "targets": [
         {
           "name": "default",

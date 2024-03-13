@@ -18,4 +18,5 @@ const mainData: MainData[] = [
   new MainData('Notification', '通知', false),
   new MainData('AlarmClock', '提醒', false),
   new MainData('ThirdPartyLibrary', '三方库的使用', false),
+  new MainData('NativeTemplateDemo', 'Native开发', false),
 ]
