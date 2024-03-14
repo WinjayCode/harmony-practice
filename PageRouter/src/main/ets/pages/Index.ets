@@ -1,5 +1,6 @@
 import router from '@ohos.router';
 import { TAG } from '../common/constants/Constants';
+import AppContext from '@ohos.app.ability.common';
 
 @Entry
 @Component
@@ -12,6 +13,12 @@ struct Index {
     if (params != null && params.hasOwnProperty('src')) {
       this.src = params['src'];
     }
+  }
+
+  onBackPress() {
+    let handler = getContext(this) as AppContext.UIAbilityContext;
+    handler.terminateSelf();
+    return true;
   }
 
   build() {

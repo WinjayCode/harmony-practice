@@ -51,8 +51,9 @@ export struct ListItemComponent {
     try {
       let want = {
         deviceId: '',
-        bundleName: this.context.abilityInfo.bundleName,
-        moduleName: pageName,
+        // bundleName: this.context.abilityInfo.bundleName,
+        bundleName: this.context.applicationInfo.name,
+        // moduleName: pageName,
         abilityName: `${pageName}Ability`
       }
       await this.context.startAbility(want);
