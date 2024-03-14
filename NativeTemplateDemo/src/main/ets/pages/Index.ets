@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+// 通过import的方式，引入native能力。
 import libHello from 'libhello.so';
 import CommonContants from '../../common/CommonContants';
 
@@ -43,22 +44,7 @@ struct NativeTemplate {
         right: $r('app.float.text_padding_left'),
         top: $r('app.float.text_padding_top')
       })
-      Row() {
-        Text($r('app.string.message'))
-          .fontSize($r('app.float.message_font_size'))
-          .fontWeight(CommonContants.FONT_WEIGHT)
-          .height($r('app.float.message_text_height'))
-          .align(Alignment.Center)
-          .maxLines(CommonContants.MAX_LINES)
-          .textOverflow({ overflow: TextOverflow.Ellipsis })
-        Image($r('app.media.ic_formula'))
-          .height($r('app.float.message_formula_height'))
-      }
-      .height($r('app.float.message_height'))
-      .width(CommonContants.FULL_PARENT)
-      .padding({ left: $r('app.float.text_padding_left'), right: $r('app.float.text_padding_left') })
-      .justifyContent(FlexAlign.Start)
-      .alignItems(VerticalAlign.Bottom)
+
       Column() {
         Row() {
           Text($r('app.string.result_tip'))
@@ -74,6 +60,7 @@ struct NativeTemplate {
           bottom: $r('app.float.tips_result_padding_bottom'),
           right: $r('app.float.tips_result_padding_right')
         })
+
         Row() {
           Text(this.result)
             .textAlign(TextAlign.End)
@@ -87,6 +74,7 @@ struct NativeTemplate {
         .padding({ right: $r('app.float.result_padding_right') })
         .width(CommonContants.FULL_PARENT)
         .justifyContent(FlexAlign.End)
+
         Row() {
           Text($r('app.string.input_x_value'))
             .fontColor(Color.Black)
@@ -106,6 +94,7 @@ struct NativeTemplate {
         .padding({ left: $r('app.float.text_input_padding'), right: $r('app.float.text_input_padding') })
         .width(CommonContants.FULL_PARENT)
         .justifyContent(FlexAlign.Start)
+
         Row() {
           Text($r('app.string.input_y_value'))
             .fontColor(Color.Black)
@@ -130,6 +119,24 @@ struct NativeTemplate {
       .borderRadius($r('app.float.function_area_border_radius'))
       .height($r('app.float.function_area_height'))
       .backgroundColor(Color.White)
+
+      Row() {
+        Text($r('app.string.message'))
+          .fontSize($r('app.float.message_font_size'))
+          .fontWeight(CommonContants.FONT_WEIGHT)
+          .height($r('app.float.message_text_height'))
+          .align(Alignment.Center)
+          .maxLines(CommonContants.MAX_LINES)
+          .textOverflow({ overflow: TextOverflow.Ellipsis })
+        Image($r('app.media.ic_formula'))
+          .height($r('app.float.message_formula_height'))
+      }
+      .height($r('app.float.message_height'))
+      .width(CommonContants.FULL_PARENT)
+      .padding({ left: $r('app.float.text_padding_left'), right: $r('app.float.text_padding_left') })
+      .justifyContent(FlexAlign.Start)
+      .alignItems(VerticalAlign.Bottom)
+
       Row() {
         Button($r('app.string.submit_button'))
           .fontSize($r('app.float.submit_button_font_size'))
@@ -143,6 +150,55 @@ struct NativeTemplate {
             } else {
               this.result = resultTemp.toFixed(CommonContants.FIXED_COUNT);
             }
+          })
+      }
+      .height($r('app.float.button_height'))
+      .width(CommonContants.FULL_PARENT)
+      .justifyContent(FlexAlign.Center)
+      .margin({ top: $r('app.float.button_margin_top') })
+
+      Row() {
+        Text('计算两数之和X+Y')
+          .fontSize($r('app.float.message_font_size'))
+          .fontWeight(CommonContants.FONT_WEIGHT)
+          .height($r('app.float.message_text_height'))
+          .align(Alignment.Center)
+          .maxLines(CommonContants.MAX_LINES)
+          .textOverflow({ overflow: TextOverflow.Ellipsis })
+      }
+      .height($r('app.float.message_height'))
+      .width(CommonContants.FULL_PARENT)
+      .padding({ left: $r('app.float.text_padding_left'), right: $r('app.float.text_padding_left') })
+      .justifyContent(FlexAlign.Start)
+      .alignItems(VerticalAlign.Bottom)
+
+      Row() {
+        Button($r('app.string.submit_button'))
+          .fontSize($r('app.float.submit_button_font_size'))
+          .fontWeight(CommonContants.FONT_WEIGHT)
+          .height(CommonContants.FULL_PARENT)
+          .width($r('app.float.button_width'))
+          .onClick(() => {
+            let resultTemp = libHello.add(this.numX, this.numY);
+            this.result = resultTemp.toString();
+          })
+      }
+      .height($r('app.float.button_height'))
+      .width(CommonContants.FULL_PARENT)
+      .justifyContent(FlexAlign.Center)
+      .margin({ top: $r('app.float.button_margin_top') })
+
+      Row() {
+        Button('C++ call ArkTS')
+          .fontSize($r('app.float.submit_button_font_size'))
+          .fontWeight(CommonContants.FONT_WEIGHT)
+          .height(CommonContants.FULL_PARENT)
+          .width(150)
+          .onClick(() => {
+            let resultTemp = libHello.nativeCallArkTS((value) => {
+              return value;
+            });
+            this.result = resultTemp.toString();
           })
       }
       .height($r('app.float.button_height'))

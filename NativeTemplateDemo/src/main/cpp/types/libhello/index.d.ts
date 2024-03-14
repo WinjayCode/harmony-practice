@@ -13,4 +13,9 @@
  * limitations under the License.
  */
 // 接口文件index.d.ts用于对外提供方法说明。
+// native侧暴露给ArkTS侧接口的声明。
 export const myHypot: (a: number, b: number) => number;
+
+export const add: (a: number, b: number) => number;
+
+export const nativeCallArkTS: (a: object) => number;
