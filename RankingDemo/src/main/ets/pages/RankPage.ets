@@ -20,6 +20,7 @@ import { ListHeaderComponent } from '../view/ListHeaderComponent';
 import { TitleComponent } from '../view/TitleComponent';
 import { ListItemComponent } from '../view/ListItemComponent';
 import { APP_EXIT_INTERVAL, Style, TIME, TITLE, WEIGHT } from '../common/constants/Constants';
+import AppContext from '@ohos.app.ability.common';
 
 let rankModel: RankViewModel = new RankViewModel();
 
@@ -47,7 +48,9 @@ struct RankPage {
       this.clickBackTimeRecord = new Date().getTime();
       return true;
     }
-    return false;
+    let handler = getContext(this) as AppContext.UIAbilityContext;
+    handler.terminateSelf();
+    return true;
   }
 
   isShowToast(): boolean {

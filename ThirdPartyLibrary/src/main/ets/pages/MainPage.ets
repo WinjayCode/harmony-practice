@@ -16,12 +16,19 @@
 import { Outer } from '../view/OuterComponent';
 import { Inner } from '../view/InnerComponent';
 import { CommonConstants } from '../common/constants/CommonConst';
+import AppContext from '@ohos.app.ability.common';
 
 @Entry
 @Component
 struct Index {
   private controller: TabsController = new TabsController();
   @State currentIndex: number = 0;
+
+  onBackPress() {
+    let handler = getContext(this) as AppContext.UIAbilityContext;
+    handler.terminateSelf();
+    return true;
+  }
 
   @Builder NavigationTitle() {
     Column() {

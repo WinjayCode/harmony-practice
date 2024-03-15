@@ -43,7 +43,7 @@ export const TIME = 1000;
 /**
  * The interval time of exit.
  */
-export const APP_EXIT_INTERVAL: number = 4500;
+export const APP_EXIT_INTERVAL: number = 2000;
 
 /**
  * The tag is the page name,which is used to print.

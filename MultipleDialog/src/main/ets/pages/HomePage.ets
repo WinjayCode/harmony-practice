@@ -20,6 +20,7 @@ import TextInputWidget from '../view/TextInputWidget';
 import TextCommonWidget from '../view/TextCommonWidget';
 import CustomDialogWidget from '../view/CustomDialogWidget';
 import Logger from '../common/utils/Logger';
+import AppContext from '@ohos.app.ability.common';
 
 /**
  * There are four dialog modes on the personal information page.
@@ -64,6 +65,12 @@ struct HomePage {
         this.sex = sexValue;
       }
     });
+  }
+
+  onBackPress() {
+    let handler = getContext(this) as AppContext.UIAbilityContext;
+    handler.terminateSelf();
+    return true;
   }
 
   build() {

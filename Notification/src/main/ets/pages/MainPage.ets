@@ -10,6 +10,7 @@ import {
 } from '../common/utils/NotificationUtil';
 import wantAgent, { WantAgent } from '@ohos.app.ability.wantAgent';
 import common from '@ohos.app.ability.common';
+import AppContext from '@ohos.app.ability.common';
 
 @Entry
 @Component
@@ -26,6 +27,12 @@ struct MainPage {
     }).catch((err: Error) => {
       Logger.error(`getWantAgent fail, err: ${JSON.stringify(err)}`);
     });
+  }
+
+  onBackPress() {
+    let handler = getContext(this) as AppContext.UIAbilityContext;
+    handler.terminateSelf();
+    return true;
   }
 
   build() {

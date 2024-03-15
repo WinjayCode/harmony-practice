@@ -16,6 +16,7 @@
 import CommonConstants from '../common/constants/CommonConstants';
 import Home from "../view/Home"
 import Setting from "../view/Setting"
+import AppContext from '@ohos.app.ability.common';
 
 /**
  * Main page
@@ -25,6 +26,12 @@ import Setting from "../view/Setting"
 struct MainPage {
   @State currentIndex: number = CommonConstants.HOME_TAB_INDEX;
   private tabsController: TabsController = new TabsController();
+
+  onBackPress() {
+    let handler = getContext(this) as AppContext.UIAbilityContext;
+    handler.terminateSelf();
+    return true;
+  }
 
   @Builder TabBuilder(title: string, index: number, selectedImg: Resource, normalImg: Resource) {
     Column() {

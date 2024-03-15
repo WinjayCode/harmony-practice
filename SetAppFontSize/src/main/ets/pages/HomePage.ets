@@ -22,6 +22,7 @@ import StyleConstants from '../common/constants/StyleConstants';
 import Logger from '../common/utils/Logger';
 import PreferencesUtil from '../common/database/Preferencesutil';
 import SettingData from '../viewmodel/SettingData';
+import AppContext from '@ohos.app.ability.common';
 
 const TAG = '[HomePage]';
 
@@ -39,6 +40,12 @@ struct HomePage {
       this.changeFontSize = value;
       Logger.info(TAG, 'Get the value of changeFontSize: ' + this.changeFontSize);
     });
+  }
+
+  onBackPress() {
+    let handler = getContext(this) as AppContext.UIAbilityContext;
+    handler.terminateSelf();
+    return true;
   }
 
   build() {

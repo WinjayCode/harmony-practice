@@ -15,6 +15,7 @@
 
 import { NavigatorModel } from '../viewmodel/NavigatorModel';
 import { CommonConstant as Const } from '../common/Constant';
+import AppContext from '@ohos.app.ability.common';
 
 @Extend(Button) function fancy (top: string) {
   .fontSize(Const.MainConstant_BUTTON_FONT_SIZE)
@@ -29,6 +30,13 @@ import { CommonConstant as Const } from '../common/Constant';
 @Entry
 @Component
 struct MainPage {
+
+  onBackPress() {
+    let handler = getContext(this) as AppContext.UIAbilityContext;
+    handler.terminateSelf();
+    return true;
+  }
+
   build() {
     Column() {
       Image($r('app.media.background'))

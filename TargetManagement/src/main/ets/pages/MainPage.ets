@@ -20,6 +20,7 @@ import DataModel, { TaskItemBean } from '../viewmodel/DataModel';
 import { CommonConstants } from '../common/constant/CommonConstant';
 import getCurrentTime from '../common/utils/DateUtil';
 import promptAction from '@ohos.promptAction';
+import AppContext from '@ohos.app.ability.common';
 
 @Entry
 @Component
@@ -41,6 +42,12 @@ struct MainPage {
     customStyle: true,
     autoCancel: false
   });
+
+  onBackPress() {
+    let handler = getContext(this) as AppContext.UIAbilityContext;
+    handler.terminateSelf();
+    return true;
+  }
 
   /**
    * Listening targetData.

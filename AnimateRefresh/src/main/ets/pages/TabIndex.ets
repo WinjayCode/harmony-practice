@@ -17,6 +17,7 @@ import FileManagerIndex from './FileManagerIndex';
 import CommonConstants from '../common/constants/CommonConstants';
 import DimensionUtil from '../common/utils/DimensionUtil';
 import CardModel from '../viewmodel/CardModel';
+import AppContext from '@ohos.app.ability.common';
 
 /**
  * Navigation path on the home page.
@@ -25,6 +26,12 @@ import CardModel from '../viewmodel/CardModel';
 @Component
 struct TabIndex {
   @State currentPage: number = CommonConstants.INDEX_DEFAULT_SELECT;
+
+  onBackPress() {
+    let handler = getContext(this) as AppContext.UIAbilityContext;
+    handler.terminateSelf();
+    return true;
+  }
 
   @Builder TabBuilder(item: CardModel, index: number | undefined) {
     Column() {

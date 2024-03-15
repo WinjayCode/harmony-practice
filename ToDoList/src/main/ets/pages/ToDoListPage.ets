@@ -16,6 +16,7 @@
 import DataModel from '../viewmodel/DataModel';
 import CommonConstants from '../common/constant/CommonConstant';
 import ToDoItem from '../view/ToDoItem';
+import AppContext from '@ohos.app.ability.common';
 
 @Entry
 @Component
@@ -24,6 +25,12 @@ struct ToDoListPage {
 
   aboutToAppear() {
     this.totalTasks = DataModel.getData();
+  }
+
+  onBackPress() {
+    let handler = getContext(this) as AppContext.UIAbilityContext;
+    handler.terminateSelf();
+    return true;
   }
 
   build() {

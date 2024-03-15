@@ -15,6 +15,7 @@
 
 import TabBar from '../view/TabBar';
 import { CommonConstant as Const } from '../common/constant/CommonConstant';
+import AppContext from '@ohos.app.ability.common';
 
 /**
  * The Index is the entry point of the application.
@@ -22,6 +23,11 @@ import { CommonConstant as Const } from '../common/constant/CommonConstant';
 @Entry
 @Component
 struct Index {
+  onBackPress() {
+    let handler = getContext(this) as AppContext.UIAbilityContext;
+    handler.terminateSelf();
+    return true;
+  }
 
   build() {
     Column() {

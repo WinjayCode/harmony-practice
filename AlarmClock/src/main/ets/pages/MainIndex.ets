@@ -21,6 +21,7 @@ import MainModel from '../viewmodel/MainViewModel';
 import ClockArea from './../view/Main/ClockArea';
 import AlarmList from './../view/Main/AlarmList';
 import DimensionUtil from '../common/utils/DimensionUtil';
+import AppContext from '@ohos.app.ability.common';
 
 @Entry
 @Component
@@ -34,6 +35,12 @@ struct MainIndex {
     that.mainModel.queryAlarmsTasker((alarms: Array<AlarmItem>) => {
       that.alarmItems = alarms;
     })
+  }
+
+  onBackPress() {
+    let handler = getContext(this) as AppContext.UIAbilityContext;
+    handler.terminateSelf();
+    return true;
   }
 
   build() {

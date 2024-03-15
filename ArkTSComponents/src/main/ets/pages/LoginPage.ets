@@ -16,6 +16,7 @@
 import prompt from '@ohos.promptAction';
 import router from '@ohos.router';
 import CommonConstants from '../common/constants/CommonConstants';
+import AppContext from '@ohos.app.ability.common';
 
 @Extend(TextInput)
 function inputStyle() {
@@ -83,6 +84,12 @@ struct LoginPage {
   aboutToDisappear() {
     clearTimeout(this.timeOutId);
     this.timeOutId = -1;
+  }
+
+  onBackPress() {
+    let handler = getContext(this) as AppContext.UIAbilityContext;
+    handler.terminateSelf();
+    return true;
   }
 
   build() {

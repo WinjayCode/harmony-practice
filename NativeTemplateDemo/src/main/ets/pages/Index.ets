@@ -16,6 +16,7 @@
 // 通过import的方式，引入native能力。
 import libHello from 'libhello.so';
 import CommonContants from '../../common/CommonContants';
+import AppContext from '@ohos.app.ability.common';
 
 @Entry
 @Component
@@ -25,6 +26,12 @@ struct NativeTemplate {
   @State numY: number = 0.0;
   private textInputControllerX: TextInputController = new TextInputController();
   private textInputControllerY: TextInputController = new TextInputController();
+
+  onBackPress() {
+    let handler = getContext(this) as AppContext.UIAbilityContext;
+    handler.terminateSelf();
+    return true;
+  }
 
   build() {
     Column() {

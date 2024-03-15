@@ -17,6 +17,7 @@
 import { VideoModule } from '../view/IndexModule';
 import { SwiperVideo } from '../view/IndexSwiper';
 import { LIST, MARGIN_FONT_SIZE, ALL_PERCENT } from '../common/constants/CommonConstants';
+import AppContext from '@ohos.app.ability.common';
 
 /**
  * The start index of the application
@@ -24,6 +25,13 @@ import { LIST, MARGIN_FONT_SIZE, ALL_PERCENT } from '../common/constants/CommonC
 @Entry
 @Component
 struct SimpleVideoIndex {
+
+  onBackPress() {
+    let handler = getContext(this) as AppContext.UIAbilityContext;
+    handler.terminateSelf();
+    return true;
+  }
+
   build() {
     Column({ space: MARGIN_FONT_SIZE.FOURTH_MARGIN }) {
       SwiperVideo()
